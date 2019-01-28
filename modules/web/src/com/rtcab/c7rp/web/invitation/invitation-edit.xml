@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.rtcab.c7rp.web.invitation.InvitationEdit"
+        datasource="invitationDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.rtcab.c7rp.web.invitation">
+    <dsContext>
+        <datasource id="invitationDs"
+                    class="com.rtcab.c7rp.entity.Invitation"
+                    view="invitation-view"/>
+        <collectionDatasource id="personsDs"
+                              class="com.rtcab.c7rp.entity.Person"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from c7rp$Person e]]>
+            </query>
+        </collectionDatasource>
+        <collectionDatasource id="partiesDs"
+                              class="com.rtcab.c7rp.entity.Party"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from c7rp$Party e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="invitationDs">
+            <column width="250px">
+                <field optionsDatasource="personsDs"
+                       property="person"/>
+                <field optionsDatasource="partiesDs"
+                       property="party"/>
+                <field property="invitedAt"/>
+                <field property="status"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

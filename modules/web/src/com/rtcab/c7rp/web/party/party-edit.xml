@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.rtcab.c7rp.web.party.PartyEdit"
+        datasource="partyDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.rtcab.c7rp.web.party">
+    <dsContext>
+        <datasource id="partyDs"
+                    class="com.rtcab.c7rp.entity.Party"
+                    view="party-view">
+            <collectionDatasource id="invitationsDs"
+                                  property="invitations"/>
+        </datasource>
+        <collectionDatasource id="locationsDs"
+                              class="com.rtcab.c7rp.entity.Location"
+                              view="_minimal">
+            <query>
+                <![CDATA[select e from c7rp$Location e]]>
+            </query>
+        </collectionDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="partyDs">
+            <column width="250px">
+                <field property="title"/>
+                <field property="theme"/>
+                <field optionsDatasource="locationsDs"
+                       property="location"/>
+                <field property="startsAt"/>
+            </column>
+        </fieldGroup>
+        <groupBox id="invitationsBox"
+                  caption="msg://com.rtcab.c7rp.entity/Party.invitations">
+            <table id="invitationsTable"
+                   height="200px"
+                   width="100%">
+                <actions>
+                    <action id="create"/>
+                    <action id="edit"/>
+                    <action id="remove"/>
+                </actions>
+                <columns>
+                    <column id="person"/>
+                    <column id="party"/>
+                </columns>
+                <rows datasource="invitationsDs"/>
+                <buttonsPanel>
+                    <button action="invitationsTable.create"/>
+                    <button action="invitationsTable.edit"/>
+                    <button action="invitationsTable.remove"/>
+                </buttonsPanel>
+            </table>
+        </groupBox>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>

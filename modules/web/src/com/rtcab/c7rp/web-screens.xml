@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<screen-config xmlns="http://schemas.haulmont.com/cuba/screens.xsd">
+    <screen id="c7rp$Person.browse"
+            template="com/rtcab/c7rp/web/person/person-browse.xml"/>
+    <screen id="c7rp$Person.edit"
+            template="com/rtcab/c7rp/web/person/person-edit.xml"/>
+    <screen id="c7rp$Location.browse"
+            template="com/rtcab/c7rp/web/location/location-browse.xml"/>
+    <screen id="c7rp$Location.edit"
+            template="com/rtcab/c7rp/web/location/location-edit.xml"/>
+    <screen id="c7rp$Invitation.edit"
+            template="com/rtcab/c7rp/web/invitation/invitation-edit.xml"/>
+    <screen id="c7rp$Party.browse"
+            template="com/rtcab/c7rp/web/party/party-browse.xml"/>
+    <screen id="c7rp$Party.edit"
+            template="com/rtcab/c7rp/web/party/party-edit.xml"/>
+</screen-config>

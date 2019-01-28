@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<views xmlns="http://schemas.haulmont.com/cuba/view.xsd">
+    <view class="com.rtcab.c7rp.entity.Invitation"
+          extends="_local"
+          name="invitation-view">
+        <property name="person"
+                  view="_minimal"/>
+        <property name="party"
+                  view="_minimal"/>
+    </view>
+    <view class="com.rtcab.c7rp.entity.Party"
+          extends="_local"
+          name="party-view">
+        <property name="location"
+                  view="_minimal"/>
+        <property name="invitations"
+                  view="invitation-view"/>
+    </view>
+</views>

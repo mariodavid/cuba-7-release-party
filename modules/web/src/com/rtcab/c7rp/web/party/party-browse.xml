@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://browseCaption"
+        class="com.rtcab.c7rp.web.party.PartyBrowse"
+        focusComponent="partiesTable"
+        lookupComponent="partiesTable"
+        messagesPack="com.rtcab.c7rp.web.party">
+    <dsContext>
+        <groupDatasource id="partiesDs"
+                         class="com.rtcab.c7rp.entity.Party"
+                         view="party-view">
+            <query>
+                <![CDATA[select e from c7rp$Party e]]>
+            </query>
+        </groupDatasource>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="partiesTable"
+            spacing="true">
+        <filter id="filter"
+                applyTo="partiesTable"
+                datasource="partiesDs">
+            <properties include=".*"/>
+        </filter>
+        <groupTable id="partiesTable"
+                    width="100%">
+            <actions>
+                <action id="create"/>
+                <action id="edit"/>
+                <action id="remove"/>
+            </actions>
+            <columns>
+                <column id="title"/>
+                <column id="theme"/>
+                <column id="location"/>
+                <column id="startsAt"/>
+            </columns>
+            <rows datasource="partiesDs"/>
+            <rowsCount/>
+            <buttonsPanel id="buttonsPanel"
+                          alwaysVisible="true">
+                <button id="createBtn"
+                        action="partiesTable.create"/>
+                <button id="editBtn"
+                        action="partiesTable.edit"/>
+                <button id="removeBtn"
+                        action="partiesTable.remove"/>
+            </buttonsPanel>
+        </groupTable>
+    </layout>
+</window>

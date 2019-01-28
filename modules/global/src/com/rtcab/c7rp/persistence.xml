@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<persistence xmlns="http://java.sun.com/xml/ns/persistence"
+             version="2.0">
+    <persistence-unit name="cuba-7-release-party"
+                      transaction-type="RESOURCE_LOCAL">
+        <class>com.rtcab.c7rp.entity.Party</class>
+        <class>com.rtcab.c7rp.entity.Location</class>
+        <class>com.rtcab.c7rp.entity.Person</class>
+        <class>com.rtcab.c7rp.entity.Invitation</class>
+    </persistence-unit>
+</persistence>

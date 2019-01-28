@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        caption="msg://editorCaption"
+        class="com.rtcab.c7rp.web.location.LocationEdit"
+        datasource="locationDs"
+        focusComponent="fieldGroup"
+        messagesPack="com.rtcab.c7rp.web.location">
+    <dsContext>
+        <datasource id="locationDs"
+                    class="com.rtcab.c7rp.entity.Location"
+                    view="_local"/>
+    </dsContext>
+    <dialogMode height="600"
+                width="800"/>
+    <layout expand="windowActions"
+            spacing="true">
+        <fieldGroup id="fieldGroup"
+                    datasource="locationDs">
+            <column width="250px">
+                <field property="name"/>
+                <field property="street"/>
+                <field property="postcode"/>
+                <field property="city"/>
+                <field property="size"/>
+            </column>
+        </fieldGroup>
+        <frame id="windowActions"
+               screen="editWindowActions"/>
+    </layout>
+</window>
