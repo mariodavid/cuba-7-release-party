@@ -29,6 +29,11 @@
                 <action id="create"/>
                 <action id="edit"/>
                 <action id="remove"/>
+                <action id="startParty"
+                        caption="msg://startParty"
+                        invoke="startParty"
+                        icon="font-icon:BIRTHDAY_CAKE"
+                        trackSelection="true"/>
             </actions>
             <columns>
                 <column id="title"/>
@@ -46,6 +51,9 @@
                         action="partiesTable.edit"/>
                 <button id="removeBtn"
                         action="partiesTable.remove"/>
+                <button id="startPartyBtn"
+                        action="partiesTable.startParty"
+                        />
             </buttonsPanel>
         </groupTable>
     </layout>
