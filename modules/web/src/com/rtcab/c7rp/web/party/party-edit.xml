@@ -1,54 +1,49 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://editorCaption"
-        class="com.rtcab.c7rp.web.party.PartyEdit"
-        datasource="partyDs"
-        focusComponent="fieldGroup"
+        focusComponent="form"
         messagesPack="com.rtcab.c7rp.web.party">
-    <dsContext>
-        <datasource id="partyDs"
-                    class="com.rtcab.c7rp.entity.Party"
-                    view="party-view">
-            <collectionDatasource id="invitationsDs"
-                                  property="invitations"/>
-        </datasource>
-        <collectionDatasource id="locationsDs"
-                              class="com.rtcab.c7rp.entity.Location"
-                              view="_minimal">
-            <query>
-                <![CDATA[select e from c7rp$Location e]]>
-            </query>
-        </collectionDatasource>
-    </dsContext>
+    <data>
+        <instance id="partyDc"
+                  class="com.rtcab.c7rp.entity.Party"
+                  view="party-view">
+            <loader/>
+            <collection id="invitationsDc" property="invitations"/>
+        </instance>
+        <collection id="locationsDc" class="com.rtcab.c7rp.entity.Location" view="_minimal">
+            <loader id="locationsLc">
+                <query>
+                    <![CDATA[select e from c7rp_Location e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="windowActions"
-            spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="partyDs">
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="partyDc">
             <column width="250px">
-                <field property="title"/>
-                <field property="theme"/>
-                <field optionsDatasource="locationsDs"
-                       property="location"/>
-                <field property="startsAt"/>
+                <textField id="titleField" property="title"/>
+                <dateField id="startsAtField" property="startsAt"/>
+                <lookupField id="themeField" property="theme"/>
+                <lookupPickerField id="locationField" optionsContainer="locationsDc" property="location">
+                    <actions>
+                        <action id="lookup" type="picker_lookup"/>
+                    </actions>
+                </lookupPickerField>
             </column>
-        </fieldGroup>
-        <groupBox id="invitationsBox"
-                  caption="msg://com.rtcab.c7rp.entity/Party.invitations">
-            <table id="invitationsTable"
-                   height="200px"
-                   width="100%">
+        </form>
+        <groupBox id="invitationsBox" caption="msg://com.rtcab.c7rp.entity/Party.invitations">
+            <table id="invitationsTable" dataContainer="invitationsDc" width="100%" height="200px">
                 <actions>
-                    <action id="create"/>
-                    <action id="edit"/>
-                    <action id="remove"/>
+                    <action id="create" type="create"/>
+                    <action id="edit" type="edit"/>
+                    <action id="remove" type="remove"/>
                 </actions>
                 <columns>
                     <column id="person"/>
                     <column id="party"/>
                 </columns>
-                <rows datasource="invitationsDs"/>
                 <buttonsPanel>
                     <button action="invitationsTable.create"/>
                     <button action="invitationsTable.edit"/>
@@ -56,7 +51,9 @@
                 </buttonsPanel>
             </table>
         </groupBox>
-        <frame id="windowActions"
-               screen="editWindowActions"/>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
     </layout>
 </window>

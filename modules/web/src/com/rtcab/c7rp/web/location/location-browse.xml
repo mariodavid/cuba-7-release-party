@@ -1,34 +1,35 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://browseCaption"
-        class="com.rtcab.c7rp.web.location.LocationBrowse"
         focusComponent="locationsTable"
-        lookupComponent="locationsTable"
         messagesPack="com.rtcab.c7rp.web.location">
-    <dsContext>
-        <groupDatasource id="locationsDs"
-                         class="com.rtcab.c7rp.entity.Location"
-                         view="_local">
-            <query>
-                <![CDATA[select e from c7rp$Location e]]>
-            </query>
-        </groupDatasource>
-    </dsContext>
+    <data readOnly="true">
+        <collection id="locationsDc"
+                    class="com.rtcab.c7rp.entity.Location"
+                    view="_local">
+            <loader id="locationsDl">
+                <query>
+                    <![CDATA[select e from c7rp_Location e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
     <dialogMode height="600"
                 width="800"/>
     <layout expand="locationsTable"
             spacing="true">
         <filter id="filter"
                 applyTo="locationsTable"
-                datasource="locationsDs">
+                dataLoader="locationsDl">
             <properties include=".*"/>
         </filter>
         <groupTable id="locationsTable"
-                    width="100%">
+                    width="100%"
+                    dataContainer="locationsDc">
             <actions>
-                <action id="create"/>
-                <action id="edit"/>
-                <action id="remove"/>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
             </actions>
             <columns>
                 <column id="name"/>
@@ -37,17 +38,17 @@
                 <column id="city"/>
                 <column id="size"/>
             </columns>
-            <rows datasource="locationsDs"/>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn"
-                        action="locationsTable.create"/>
-                <button id="editBtn"
-                        action="locationsTable.edit"/>
-                <button id="removeBtn"
-                        action="locationsTable.remove"/>
+                <button id="createBtn" action="locationsTable.create"/>
+                <button id="editBtn" action="locationsTable.edit"/>
+                <button id="removeBtn" action="locationsTable.remove"/>
             </buttonsPanel>
         </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
     </layout>
 </window>

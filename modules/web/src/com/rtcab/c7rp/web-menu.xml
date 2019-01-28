@@ -1,9 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <menu-config xmlns="http://schemas.haulmont.com/cuba/menu.xsd">
-    <menu id="application-c7rp"
-          insertBefore="administration">
-        <item screen="c7rp$Person.browse"/>
-        <item screen="c7rp$Location.browse"/>
-        <item screen="c7rp$Party.browse"/>
+    <menu id="application-c7rp" insertBefore="administration">
+        <item screen="c7rp_Person.browse"/>
+        <item screen="c7rp_Location.browse"/>
+        <item screen="c7rp_Party.browse"/>
     </menu>
 </menu-config>

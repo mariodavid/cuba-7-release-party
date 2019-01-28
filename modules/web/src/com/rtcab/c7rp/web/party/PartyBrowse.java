@@ -1,6 +1,11 @@
 package com.rtcab.c7rp.web.party;
 
-import com.haulmont.cuba.gui.components.AbstractLookup;
+import com.haulmont.cuba.gui.screen.*;
+import com.rtcab.c7rp.entity.Party;
 
-public class PartyBrowse extends AbstractLookup {
+@UiController("c7rp_Party.browse")
+@UiDescriptor("party-browse.xml")
+@LookupComponent("partiesTable")
+@LoadDataBeforeShow
+public class PartyBrowse extends StandardLookup<Party> {
 }

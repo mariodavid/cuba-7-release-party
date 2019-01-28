@@ -1,52 +1,53 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://browseCaption"
-        class="com.rtcab.c7rp.web.party.PartyBrowse"
         focusComponent="partiesTable"
-        lookupComponent="partiesTable"
         messagesPack="com.rtcab.c7rp.web.party">
-    <dsContext>
-        <groupDatasource id="partiesDs"
-                         class="com.rtcab.c7rp.entity.Party"
-                         view="party-view">
-            <query>
-                <![CDATA[select e from c7rp$Party e]]>
-            </query>
-        </groupDatasource>
-    </dsContext>
+    <data readOnly="true">
+        <collection id="partiesDc"
+                    class="com.rtcab.c7rp.entity.Party"
+                    view="party-view">
+            <loader id="partiesDl">
+                <query>
+                    <![CDATA[select e from c7rp_Party e]]>
+                </query>
+            </loader>
+        </collection>
+    </data>
     <dialogMode height="600"
                 width="800"/>
     <layout expand="partiesTable"
             spacing="true">
         <filter id="filter"
                 applyTo="partiesTable"
-                datasource="partiesDs">
+                dataLoader="partiesDl">
             <properties include=".*"/>
         </filter>
         <groupTable id="partiesTable"
-                    width="100%">
+                    width="100%"
+                    dataContainer="partiesDc">
             <actions>
-                <action id="create"/>
-                <action id="edit"/>
-                <action id="remove"/>
+                <action id="create" type="create"/>
+                <action id="edit" type="edit"/>
+                <action id="remove" type="remove"/>
             </actions>
             <columns>
                 <column id="title"/>
+                <column id="startsAt"/>
                 <column id="theme"/>
                 <column id="location"/>
-                <column id="startsAt"/>
             </columns>
-            <rows datasource="partiesDs"/>
             <rowsCount/>
             <buttonsPanel id="buttonsPanel"
                           alwaysVisible="true">
-                <button id="createBtn"
-                        action="partiesTable.create"/>
-                <button id="editBtn"
-                        action="partiesTable.edit"/>
-                <button id="removeBtn"
-                        action="partiesTable.remove"/>
+                <button id="createBtn" action="partiesTable.create"/>
+                <button id="editBtn" action="partiesTable.edit"/>
+                <button id="removeBtn" action="partiesTable.remove"/>
             </buttonsPanel>
         </groupTable>
+        <hbox id="lookupActions" spacing="true" visible="false">
+            <button action="lookupSelectAction"/>
+            <button action="lookupCancelAction"/>
+        </hbox>
     </layout>
 </window>

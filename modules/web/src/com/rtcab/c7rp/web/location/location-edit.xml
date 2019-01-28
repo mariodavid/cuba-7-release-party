@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://editorCaption"
-        class="com.rtcab.c7rp.web.location.LocationEdit"
-        datasource="locationDs"
-        focusComponent="fieldGroup"
+        focusComponent="form"
         messagesPack="com.rtcab.c7rp.web.location">
-    <dsContext>
-        <datasource id="locationDs"
-                    class="com.rtcab.c7rp.entity.Location"
-                    view="_local"/>
-    </dsContext>
+    <data>
+        <instance id="locationDc"
+                  class="com.rtcab.c7rp.entity.Location"
+                  view="_local">
+            <loader/>
+        </instance>
+    </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="windowActions"
-            spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="locationDs">
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="locationDc">
             <column width="250px">
-                <field property="name"/>
-                <field property="street"/>
-                <field property="postcode"/>
-                <field property="city"/>
-                <field property="size"/>
+                <textField id="nameField" property="name"/>
+                <textField id="streetField" property="street"/>
+                <textField id="postcodeField" property="postcode"/>
+                <textField id="cityField" property="city"/>
+                <lookupField id="sizeField" property="size"/>
             </column>
-        </fieldGroup>
-        <frame id="windowActions"
-               screen="editWindowActions"/>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
     </layout>
 </window>

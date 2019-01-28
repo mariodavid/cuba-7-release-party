@@ -17,7 +17,7 @@ import com.haulmont.chile.core.annotations.NamePattern;
 
 @NamePattern("%s %s|party,person")
 @Table(name = "C7RP_INVITATION")
-@Entity(name = "c7rp$Invitation")
+@Entity(name = "c7rp_Invitation")
 public class Invitation extends StandardEntity {
     private static final long serialVersionUID = -1735676348544459611L;
 

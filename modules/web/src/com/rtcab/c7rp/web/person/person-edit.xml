@@ -1,27 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
-<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+<window xmlns="http://schemas.haulmont.com/cuba/screen/window.xsd"
         caption="msg://editorCaption"
-        class="com.rtcab.c7rp.web.person.PersonEdit"
-        datasource="personDs"
-        focusComponent="fieldGroup"
+        focusComponent="form"
         messagesPack="com.rtcab.c7rp.web.person">
-    <dsContext>
-        <datasource id="personDs"
-                    class="com.rtcab.c7rp.entity.Person"
-                    view="_local"/>
-    </dsContext>
+    <data>
+        <instance id="personDc"
+                  class="com.rtcab.c7rp.entity.Person"
+                  view="_local">
+            <loader/>
+        </instance>
+    </data>
     <dialogMode height="600"
                 width="800"/>
-    <layout expand="windowActions"
-            spacing="true">
-        <fieldGroup id="fieldGroup"
-                    datasource="personDs">
+    <layout expand="editActions" spacing="true">
+        <form id="form" dataContainer="personDc">
             <column width="250px">
-                <field property="name"/>
-                <field property="firstName"/>
+                <textField id="nameField" property="name"/>
+                <textField id="firstNameField" property="firstName"/>
             </column>
-        </fieldGroup>
-        <frame id="windowActions"
-               screen="editWindowActions"/>
+        </form>
+        <hbox id="editActions" spacing="true">
+            <button action="windowCommitAndClose"/>
+            <button action="windowClose"/>
+        </hbox>
     </layout>
 </window>

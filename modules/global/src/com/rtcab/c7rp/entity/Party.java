@@ -22,7 +22,7 @@ import javax.persistence.TemporalType;
 
 @NamePattern("%s|title")
 @Table(name = "C7RP_PARTY")
-@Entity(name = "c7rp$Party")
+@Entity(name = "c7rp_Party")
 public class Party extends StandardEntity {
     private static final long serialVersionUID = 8882237167685029763L;
 
