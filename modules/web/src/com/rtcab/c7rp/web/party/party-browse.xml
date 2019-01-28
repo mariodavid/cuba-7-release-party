@@ -30,6 +30,10 @@
                 <action id="create" type="create"/>
                 <action id="edit" type="edit"/>
                 <action id="remove" type="remove"/>
+                <action id="startParty"
+                        caption="msg://startParty"
+                        icon="font-icon:BIRTHDAY_CAKE"
+                        trackSelection="true"/>
             </actions>
             <columns>
                 <column id="title"/>
@@ -43,6 +47,9 @@
                 <button id="createBtn" action="partiesTable.create"/>
                 <button id="editBtn" action="partiesTable.edit"/>
                 <button id="removeBtn" action="partiesTable.remove"/>
+                <button id="startPartyBtn"
+                        action="partiesTable.startParty"
+                />
             </buttonsPanel>
         </groupTable>
         <hbox id="lookupActions" spacing="true" visible="false">
