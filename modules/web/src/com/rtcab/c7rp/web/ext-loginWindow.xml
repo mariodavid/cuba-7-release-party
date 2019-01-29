@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<window xmlns="http://schemas.haulmont.com/cuba/window.xsd"
+        class="com.rtcab.c7rp.web.ExtAppLoginWindow"
+        messagesPack="com.rtcab.c7rp.web" extends="/com/haulmont/cuba/web/app/loginwindow/loginwindow.xml">
+    <dialogMode height="600" width="800"/>
+    <layout/>
+</window>
