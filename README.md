@@ -19,7 +19,7 @@ There are two branches for the different versions:
 
 You can switch between the two branches in the Github UI in order to see the differences on a per class level:
 
-![release-party-overview](https://github.com/mariodavid/cuba-7-release-party/blob/master/img/switch-cuba-versions-in-github.gif)
+![release-party-overview](https://github.com/mariodavid/cuba-7-release-party/blob/cuba-7/img/switch-cuba-versions-in-github.gif)
 
 
 
