@@ -8,4 +8,143 @@
   @include app_components;
 
   @include com_rtcab_c7rp-hover-ext;
+
+
+  .c-groupbox-caption {
+    color: $petclinic-main-color;
+  }
+
+
+  .c-login-submit-button {
+    background-color: $petclinic-login-btn;
+  }
+
+  .v-slot-c-sidemenu-panel {
+    border:none;
+    background-color: $petclinic-light-color;
+
+  }
+
+  .v-textfield-focus, .v-textfield:focus {
+    border-color: $petclinic-main-color;
+  }
+
+
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+  // Side menu
+  //////////////////////////////////////////////////////////////////////////////////////////////////
+  .c-sidemenu-panel {
+
+    background: $petclinic-light-color none;
+    border-right: none;
+    color: $petclinic-main-color;
+
+
+    .c-sidemenu-item-action.c-sidemenu-item-focused {
+      border-right: 5px solid $petclinic-main-color;
+    }
+    .c-sidemenu-item-header, .c-sidemenu-item-header :hover {
+      color: $petclinic-main-color;
+      margin: 0;
+    }
+
+    .c-sidemenu-item-header-open {
+      background-color: $petclinic-light-color;
+      color:#ffffff;
+    }
+    .c-sidemenu-submenu-open {
+      background-color: $petclinic-light-color;
+      color:$petclinic-main-color;
+    }
+
+    .c-sidemenu-item :focus, .c-sidemenu-item :hover, .c-sidemenu-item-focused {
+      color: #ffffff;
+    }
+
+    .c-sidemenu-item-header.c-sidemenu-item-focused, .c-sidemenu-item-selected {
+      background-color: $petclinic-main-color;
+      color: #ffffff;
+    }
+
+    .c-sidemenu {
+      color: $petclinic-main-color;
+    }
+
+    .c-sidemenu-title {
+      color: #ffffff;
+      background-color: $petclinic-main-color;
+
+    }
+
+    .c-ftsfield-button, .c-newwindow-button, .c-logout-button {
+      color: $petclinic-main-color;
+    }
+
+    .c-ftsfield-button:hover, .c-newwindow-button:hover, .c-logout-button:hover {
+      color: $petclinic-main-color;
+      background: transparent;
+    }
+
+  }
+
+
+
+
+}
+
+
+@media screen and (max-width: 1200px) {
+  .c-login-main-layout {
+    background: url("branding/background-party-s.png") !important;
+  }
+
+
+    .c-login-panel {
+          background: none !important;
+          border:none !important;
+          padding: 37.33333px;
+          margin-left: 400px !important;
+          margin-top: 200px !important;
+    }
+
+}
+
+@media screen and (min-width: 1200px) {
+  .c-login-main-layout {
+    background: url("branding/background-party-m.png") !important;
+  }
+
+
+    .c-login-panel {
+          background: none !important;
+          border:none !important;
+          padding: 37.33333px;
+          margin-left: 625px !important;
+          margin-top: 350px !important;
+    }
+
+}
+
+@media screen and (min-width: 1800px) {
+  .c-login-main-layout {
+    background: url("branding/background-party-l.png") !important;
+  }
+
+
+    .c-login-panel {
+          background: none !important;
+          border:none !important;
+          padding: 37.33333px;
+          margin-left: 1200px !important;
+          margin-top: 450px !important;
+    }
+
+}
+
+
+
+
+.v-slot-c-powered-by {
+  background-color: rgba(255,255,255,0.8);
+  padding-top: 20px;
 }

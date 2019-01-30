@@ -14,4 +14,6 @@
             template="com/rtcab/c7rp/web/party/party-browse.xml"/>
     <screen id="c7rp$Party.edit"
             template="com/rtcab/c7rp/web/party/party-edit.xml"/>
+    <screen id="mainWindow" template="com/rtcab/c7rp/web/ext-mainwindow.xml"/>
+    <screen id="loginWindow" template="com/rtcab/c7rp/web/ext-loginWindow.xml"/>
 </screen-config>
