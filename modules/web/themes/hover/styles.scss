@@ -1,0 +1,11 @@
+@import "hover-defaults";
+@import "com.rtcab.c7rp/hover-ext-defaults";
+@import "app-components";
+@import "com.rtcab.c7rp/hover-ext";
+
+.hover {
+  // include auto-generated app components SCSS
+  @include app_components;
+
+  @include com_rtcab_c7rp-hover-ext;
+}
