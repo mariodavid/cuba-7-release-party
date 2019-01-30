@@ -29,14 +29,6 @@
     border-color: $petclinic-main-color;
   }
 
-    .c-login-panel {
-          background: none;
-          border:none;
-          padding: 37.33333px;
-          margin-left: 1200px;
-          margin-top: 450px;
-    }
-
 
   //////////////////////////////////////////////////////////////////////////////////////////////////
   // Side menu
@@ -94,25 +86,61 @@
     }
 
   }
+
+
+
+
 }
 
 
 @media screen and (max-width: 1200px) {
   .c-login-main-layout {
-    background: url("branding/background-party-s.jpg") !important;
+    background: url("branding/background-party-s.png") !important;
   }
+
+
+    .c-login-panel {
+          background: none !important;
+          border:none !important;
+          padding: 37.33333px;
+          margin-left: 400px !important;
+          margin-top: 200px !important;
+    }
+
 }
+
 @media screen and (min-width: 1200px) {
   .c-login-main-layout {
-    background: url("branding/background-party-m.jpg") !important;
+    background: url("branding/background-party-m.png") !important;
   }
+
+
+    .c-login-panel {
+          background: none !important;
+          border:none !important;
+          padding: 37.33333px;
+          margin-left: 625px !important;
+          margin-top: 350px !important;
+    }
+
 }
 
 @media screen and (min-width: 1800px) {
   .c-login-main-layout {
     background: url("branding/background-party-l.png") !important;
   }
+
+
+    .c-login-panel {
+          background: none !important;
+          border:none !important;
+          padding: 37.33333px;
+          margin-left: 1200px !important;
+          margin-top: 450px !important;
+    }
+
 }
+
 
 
 
