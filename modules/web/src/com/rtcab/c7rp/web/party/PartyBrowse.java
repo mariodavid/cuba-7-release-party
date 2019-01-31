@@ -24,13 +24,16 @@ public class PartyBrowse extends StandardLookup<Party> {
     protected Messages messages;
 
     @Inject
+    protected MessageBundle messageBundle;
+
+    @Inject
     protected Notifications notifications;
 
     @Subscribe("partiesTable.startParty")
     protected void startParty(Action.ActionPerformedEvent event) {
         Party partyToStart = partiesTable.getSingleSelected();
         String themeName = messages.getMessage(partyToStart.getTheme());
-        String startPartyMessage = messages.formatMessage(this.getClass(), "startPartyMessage", partyToStart.getTitle(), themeName);
+        String startPartyMessage = messageBundle.formatMessage("startPartyMessage", partyToStart.getTitle(), themeName);
 
         notifications.create(Notifications.NotificationType.WARNING)
                 .withCaption(startPartyMessage)
